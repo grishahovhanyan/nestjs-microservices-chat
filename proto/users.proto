@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package USERS_PACKAGE;
+
+service UsersService {
+  rpc FindOneUser (FindOneUserDto) returns (User);
+  rpc FindUsersByIds (FindUsersByIdsDto) returns (Users);
+}
+
+message User {
+  int32 id = 1;
+  string fullName = 2;
+  string email = 3;
+  string signedUpAt = 4;
+}
+
+message Users {
+  repeated User results = 1;
+}
+
+message FindOneUserDto {
+  int32 userId = 1;
+}
+
+message FindUsersByIdsDto {
+  repeated int32 userIds = 1;
+}

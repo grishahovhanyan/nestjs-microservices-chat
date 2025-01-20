@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2022",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "incremental": true,
+    "sourceMap": true,
+    "moduleResolution": "Node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@app/common": ["libs/common/src"],
+      "@app/common/*": ["libs/common/src/*"],
+      "@app/database": ["libs/database/src"],
+      "@app/database/*": ["libs/database/src/*"],
+      "@app/microservices": ["libs/microservices/src"],
+      "@app/microservices/*": ["libs/microservices/src/*"],
+      "@app/swagger": ["libs/swagger/src"],
+      "@app/swagger/*": ["libs/swagger/src/*"]
+    }
+  },
+  "include": ["apps/**/*.ts", "libs/**/*.ts", "**/*.html"],
+  "exclude": ["node_modules", "dist"]
+}

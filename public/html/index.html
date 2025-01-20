@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+
+    <link rel="stylesheet" href="../../css//index.css" />
+  </head>
+  <body>
+    <!-- Signin page -->
+    <div class="signin-page" id="signin-page" style="display: flex;">
+      <h2>Sign In</h2>
+      <form id="signin-form">
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit" id="signin-button">Sign In</button>
+        <div id="signin-error" style="color: red; display: none">Invalid credentials. Please try again.</div>
+      </form>
+    </div>
+
+    <!-- Chat Page -->
+    <div class="chat-app" id="chat-app" style="display: none">
+      <div class="right-box">
+        <span id="user-name" class="user-name"></span>
+        <button id="logout-button" class="logout-button">Log Out</button>
+      </div>
+
+      <div class="sidebar">
+        <div class="sidebar-header">My Conversations</div>
+        <div class="conversation-list"></div>
+        <button class="create-conversation-button" id="create-conversation-button">Create Conversation</button>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-header">
+          <span class="chat-name">Select a Conversation</span>
+        </div>
+        <div class="chat-messages"></div>
+        <div class="chat-input">
+          <input type="text" id="message-input" placeholder="Type a message..." />
+          <button id="send-button">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal HTML structure for creating a new conversation -->
+    <div id="create-conversation-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span id="modal-close-button" class="close">&times;</span>
+        <h2>Create New Conversation</h2>
+        <div id="users-list">
+          <!-- Users will be added here dynamically -->
+        </div>
+        <button id="modal-create-button">Create Conversation</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="../../js/index.js"></script>
+  </body>
+</html>

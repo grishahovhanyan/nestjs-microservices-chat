@@ -1,0 +1,9 @@
+{
+  "name": "@chat/conversations",
+  "version": "1.0.0",
+  "description": "Nestjs Microservices Chat [Conversations]",
+  "author": "Grisha Hovhanyan",
+  "main": "main.js",
+  "scripts": {},
+  "dependencies": {}
+}

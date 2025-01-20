@@ -1,0 +1,14 @@
+{
+  "name": "@chat/auth",
+  "version": "1.0.0",
+  "description": "Nestjs Microservices Chat [Auth]",
+  "author": "Grisha Hovhanyan",
+  "main": "main.js",
+  "scripts": {},
+  "dependencies": {
+    "@nestjs/jwt": "^10.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
+  }
+}

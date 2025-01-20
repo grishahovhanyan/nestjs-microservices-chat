@@ -1,0 +1,134 @@
+services:
+  # ******* MySql Containers *******
+  mysql:
+    image: mysql
+    container_name: nest_chat_mysql
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - '3307:${MYSQL_PORT}'
+    networks:
+      - nest_chat
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql_migrations:
+    container_name: nest_chat_mysql_migrations
+    depends_on:
+      mysql:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: npm run migrations:run
+    env_file:
+      - ./apps/auth/.env
+    environment:
+      MYSQL_HOST: mysql
+    networks:
+      - nest_chat
+
+  # ******* Microservices *******
+  auth:
+    container_name: nest_chat_auth
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: always
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: npm run start:dev auth
+    env_file:
+      - ./apps/auth/.env
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/app
+    environment:
+      MYSQL_HOST: mysql
+    networks:
+      - nest_chat
+
+  conversations:
+    container_name: nest_chat_conversations
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: always
+    build:
+      context: .
+      dockerfile: ./apps/conversations/Dockerfile
+      target: development
+    command: npm run start:dev conversations
+    env_file:
+      - ./apps/conversations/.env
+    ports:
+      - '3001:3001'
+    volumes:
+      - .:/usr/src/app
+    environment:
+      MYSQL_HOST: mysql
+    networks:
+      - nest_chat
+
+  participants:
+    container_name: nest_chat_participants
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: always
+    build:
+      context: .
+      dockerfile: ./apps/participants/Dockerfile
+      target: development
+    command: npm run start:dev participants
+    env_file:
+      - ./apps/participants/.env
+    ports:
+      - '3002:3002'
+    volumes:
+      - .:/usr/src/app
+    environment:
+      MYSQL_HOST: mysql
+    networks:
+      - nest_chat
+
+  messages:
+    container_name: nest_chat_messages
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: always
+    build:
+      context: .
+      dockerfile: ./apps/messages/Dockerfile
+      target: development
+    command: npm run start:dev messages
+    env_file:
+      - ./apps/messages/.env
+    ports:
+      - '3003:3003'
+    volumes:
+      - .:/usr/src/app
+    environment:
+      MYSQL_HOST: mysql
+    networks:
+      - nest_chat
+
+networks:
+  nest_chat:
+    driver: bridge
+
+volumes:
+  mysql_data:
