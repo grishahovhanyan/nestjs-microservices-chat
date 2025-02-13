@@ -1,11 +1,11 @@
-import { Get, Post, Query, Body, Param, Put, Delete, UseGuards } from '@nestjs/common'
+import { Body, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common'
+
 import { Swagger } from '@app/swagger'
-
 import { EnhancedController, RequestUser, TransformResponse } from '@app/common'
-import { ConversationAccessGuard } from './guards/conversation-access.guard'
-import { GetMessagesDto, CreateMessageDto, UpdateMessageDto } from './dto/message.dto'
-
 import { Message } from '@app/database'
+
+import { CreateMessageDto, GetMessagesDto, UpdateMessageDto } from './dto'
+import { ConversationAccessGuard } from './guards/conversation-access.guard'
 import { MessagesService } from './messages.service'
 
 @EnhancedController('conversations/:conversationId/messages', true, 'Messages')

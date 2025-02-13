@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm'
-import { DbTables } from '../db.enum'
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 
-import { Participant } from './participant.entity'
+import { DbTables } from '../db.enum'
 import { Message } from './message.entity'
+import { Participant } from './participant.entity'
 import { User } from './user.entity'
 
 @Entity(DbTables.conversations)

@@ -1,7 +1,7 @@
-import { User } from './user.entity'
 import { Conversation } from './conversation.entity'
-import { Participant } from './participant.entity'
 import { Message } from './message.entity'
+import { Participant } from './participant.entity'
+import { User } from './user.entity'
 
 export const MYSQL_ENTITIES = [User, Conversation, Participant, Message]
 

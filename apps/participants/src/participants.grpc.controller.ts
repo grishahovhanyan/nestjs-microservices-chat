@@ -1,10 +1,11 @@
-import { Controller } from '@nestjs/common'
 import {
-  ParticipantsGrpcServiceControllerMethods,
-  FindParticipantsDto,
+  CreateParticipantDto,
   FindOneParticipantDto,
-  CreateParticipantDto
+  FindParticipantsDto,
+  ParticipantsGrpcServiceControllerMethods
 } from '@app/microservices'
+import { Controller } from '@nestjs/common'
+
 import { ParticipantsService } from './participants.service'
 
 /*

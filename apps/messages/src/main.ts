@@ -1,9 +1,10 @@
+import { Logger } from '@nestjs/common'
+import { NestFactory } from '@nestjs/core'
 import { NestExpressApplication } from '@nestjs/platform-express'
 import { initializeTransactionalContext } from 'typeorm-transactional'
-import { NestFactory } from '@nestjs/core'
-import { Logger } from '@nestjs/common'
 
 import { AppUtilsService, envService } from '@app/common'
+
 import { MessagesModule } from './messages.module'
 
 const loggerContext = 'MessagesMicroservice'

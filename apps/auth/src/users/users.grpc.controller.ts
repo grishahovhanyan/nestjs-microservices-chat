@@ -1,5 +1,6 @@
+import { FindOneUserDto, FindUsersByIdsDto, UsersGrpcServiceControllerMethods } from '@app/microservices'
 import { Controller } from '@nestjs/common'
-import { UsersGrpcServiceControllerMethods, FindOneUserDto, FindUsersByIdsDto } from '@app/microservices'
+
 import { UsersService } from './users.service'
 
 /*

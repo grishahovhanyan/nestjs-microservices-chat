@@ -1,9 +1,10 @@
 import { ConflictException, Injectable, Logger } from '@nestjs/common'
-import { WebSocketGateway, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect } from '@nestjs/websockets'
-import { Server, Socket } from 'socket.io'
+import { OnGatewayConnection, OnGatewayDisconnect, WebSocketGateway, WebSocketServer } from '@nestjs/websockets'
 import jwt, { JwtPayload } from 'jsonwebtoken'
+import { Server, Socket } from 'socket.io'
 
 import { envService, UserStatuses } from '@app/common'
+
 import { UsersService } from '../users/users.service'
 
 @Injectable()

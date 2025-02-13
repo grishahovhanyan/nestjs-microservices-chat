@@ -1,8 +1,8 @@
+import { ConfigService } from '@nestjs/config'
+import { join } from 'path'
+import { DataSource } from 'typeorm'
 import 'dotenv/config'
 import 'tsconfig-paths/register'
-import { ConfigService } from '@nestjs/config'
-import { DataSource } from 'typeorm'
-import { join } from 'path'
 
 const configService = new ConfigService()
 

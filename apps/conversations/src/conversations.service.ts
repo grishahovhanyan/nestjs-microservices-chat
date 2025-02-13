@@ -1,8 +1,17 @@
+import {
+  AUTH_SERVICE,
+  PARTICIPANTS_PACKAGE,
+  PARTICIPANTS_SERVICE_NAME,
+  ParticipantsGrpcServiceClient,
+  USERS_PACKAGE,
+  USERS_SERVICE_NAME,
+  UsersGrpcServiceClient
+} from '@app/microservices'
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
-import { Repository } from 'typeorm'
-import { InjectRepository } from '@nestjs/typeorm'
 import { ClientGrpc, ClientProxy } from '@nestjs/microservices'
+import { InjectRepository } from '@nestjs/typeorm'
 import { firstValueFrom } from 'rxjs'
+import { Repository } from 'typeorm'
 
 import {
   ChatSocketEvents,
@@ -13,17 +22,9 @@ import {
   SUCCESS_RESPONSE
 } from '@app/common'
 import { Conversation } from '@app/database'
-import {
-  AUTH_SERVICE,
-  UsersGrpcServiceClient,
-  ParticipantsGrpcServiceClient,
-  USERS_PACKAGE,
-  USERS_SERVICE_NAME,
-  PARTICIPANTS_PACKAGE,
-  PARTICIPANTS_SERVICE_NAME
-} from '@app/microservices'
-import { GetConversationsDto, CreateConversationDto, UpdateConversationDto } from './dto/conversation.dto'
+
 import { ConversationsRepository } from './conversations.repository'
+import { CreateConversationDto, GetConversationsDto, UpdateConversationDto } from './dto'
 
 @Injectable()
 export class ConversationsService implements OnModuleInit {

@@ -1,9 +1,9 @@
 import { Logger, Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { DataSource } from 'typeorm'
+import { addTransactionalDataSource } from 'typeorm-transactional'
 
 import { MySqlConfigService } from './mysql-config.service'
-import { addTransactionalDataSource } from 'typeorm-transactional'
-import { DataSource } from 'typeorm'
 
 @Module({
   imports: [

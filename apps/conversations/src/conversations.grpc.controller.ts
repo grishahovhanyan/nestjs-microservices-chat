@@ -1,5 +1,6 @@
-import { Controller } from '@nestjs/common'
 import { ConversationsGrpcServiceControllerMethods, FindOneConversationDto } from '@app/microservices'
+import { Controller } from '@nestjs/common'
+
 import { ConversationsService } from './conversations.service'
 
 /*

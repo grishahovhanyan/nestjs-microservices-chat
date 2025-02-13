@@ -1,12 +1,13 @@
-import { initializeTransactionalContext } from 'typeorm-transactional'
-import { NestExpressApplication } from '@nestjs/platform-express'
-import { NestFactory } from '@nestjs/core'
-import { ConfigService } from '@nestjs/config'
+import { CONVERSATIONS_PACKAGE, getGrpcConnectionOptions } from '@app/microservices'
 import { Logger } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
+import { NestFactory } from '@nestjs/core'
+import { NestExpressApplication } from '@nestjs/platform-express'
 import { join } from 'path'
+import { initializeTransactionalContext } from 'typeorm-transactional'
 
 import { AppUtilsService, envService } from '@app/common'
-import { CONVERSATIONS_PACKAGE, getGrpcConnectionOptions } from '@app/microservices'
+
 import { ConversationsModule } from './conversations.module'
 
 const loggerContext = 'ConversationsMicroservice'

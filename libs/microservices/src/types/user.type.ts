@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
-import { Observable } from 'rxjs'
 import { GrpcMethod } from '@nestjs/microservices'
+import { Observable } from 'rxjs'
+
 import { User } from '@app/database'
 
 export interface FindOneUserDto {

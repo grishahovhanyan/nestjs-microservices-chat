@@ -1,11 +1,11 @@
-import { Get, Post, Query, Body, Param, Put, Delete } from '@nestjs/common'
+import { Body, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+
 import { Swagger } from '@app/swagger'
-
 import { EnhancedController, RequestUser, TransformResponse } from '@app/common'
-import { CreateConversationDto, GetConversationsDto, UpdateConversationDto } from './dto/conversation.dto'
-
 import { Conversation } from '@app/database'
+
 import { ConversationsService } from './conversations.service'
+import { CreateConversationDto, GetConversationsDto, UpdateConversationDto } from './dto'
 
 @EnhancedController('conversations')
 @TransformResponse(Conversation)

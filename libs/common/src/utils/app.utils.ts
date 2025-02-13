@@ -1,10 +1,11 @@
 import { INestApplication, Logger } from '@nestjs/common'
 import { NestExpressApplication } from '@nestjs/platform-express'
-import helmet from 'helmet'
 import compression from 'compression'
+import helmet from 'helmet'
 
 import { registerSwaggerModule } from '@app/swagger'
 import { ValidationPipe } from '@app/common'
+
 import { envService } from './get-env'
 
 export class AppUtilsService {

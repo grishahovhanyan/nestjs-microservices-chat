@@ -1,11 +1,11 @@
 import { Get, Query, UseGuards } from '@nestjs/common'
-import { EnhancedController, RequestUser, TransformResponse, paginatedResponse } from '@app/common'
 
 import { Swagger } from '@app/swagger'
-import { JwtAuthGuard } from '../guards/jwt-auth.guard'
-import { GetUsersDto } from './dto/user.dto'
-
+import { EnhancedController, paginatedResponse, RequestUser, TransformResponse } from '@app/common'
 import { User } from '@app/database'
+
+import { JwtAuthGuard } from '../guards/jwt-auth.guard'
+import { GetUsersDto } from './dto'
 import { UsersService } from './users.service'
 
 @EnhancedController('users')

@@ -1,18 +1,19 @@
+import { Module } from '@nestjs/common'
 import { APP_INTERCEPTOR } from '@nestjs/core'
+import { JwtModule } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { Module } from '@nestjs/common'
-import { JwtModule } from '@nestjs/jwt'
 import * as Joi from 'joi'
+
 import { AppConfigModule, RequestLoggerInterceptor } from '@app/common'
 import { MysqlModule, User } from '@app/database'
 
-import { JwtStrategy } from './strategies/jwt.strategy'
-import { JwtConfigService } from './jwt-config.service'
 import { AuthController } from './auth.controller'
 import { AuthService } from './auth.service'
-import { UsersModule } from './users/users.module'
+import { JwtConfigService } from './jwt-config.service'
 import { SocketModule } from './socket/socket.module'
+import { JwtStrategy } from './strategies/jwt.strategy'
+import { UsersModule } from './users/users.module'
 
 @Module({
   imports: [

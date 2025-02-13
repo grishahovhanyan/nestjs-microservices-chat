@@ -1,17 +1,17 @@
+import { getAuthServiceOptions, getParticipantsPackageOptions, getUsersPackageOptions } from '@app/microservices'
 import { Module } from '@nestjs/common'
-import { TypeOrmModule } from '@nestjs/typeorm'
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { ClientsModule } from '@nestjs/microservices'
+import { TypeOrmModule } from '@nestjs/typeorm'
 import * as Joi from 'joi'
 
 import { AppConfigModule, JwtAuthGuard, RequestLoggerInterceptor } from '@app/common'
-import { getAuthServiceOptions, getParticipantsPackageOptions, getUsersPackageOptions } from '@app/microservices'
-import { MysqlModule, Conversation } from '@app/database'
+import { Conversation, MysqlModule } from '@app/database'
 
 import { ConversationsController } from './conversations.controller'
 import { ConversationsGrpcController } from './conversations.grpc.controller'
-import { ConversationsService } from './conversations.service'
 import { ConversationsRepository } from './conversations.repository'
+import { ConversationsService } from './conversations.service'
 
 @Module({
   imports: [

@@ -1,5 +1,6 @@
 import { IntersectionType } from '@nestjs/swagger'
-import { PaginationDto, SearchDto, OrderDto, PageTypes, USERS_SORT_FIELDS, UserStatuses } from '@app/common'
+
+import { OrderDto, PageTypes, PaginationDto, SearchDto, USERS_SORT_FIELDS } from '@app/common'
 
 export class GetUsersDto extends IntersectionType(
   PaginationDto(PageTypes.users),
@@ -8,10 +9,4 @@ export class GetUsersDto extends IntersectionType(
 ) {
   userIdsToExclude?: number[]
   userIdsToInclude?: number[]
-}
-
-export class UpdateUserDto {
-  fullName?: string
-  status?: UserStatuses
-  offlineAt?: Date
 }

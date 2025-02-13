@@ -6,5 +6,6 @@ export enum DbTables {
 }
 
 export enum DbRelations {
-  user = 'user'
+  user = 'user',
+  conversation = 'conversation'
 }

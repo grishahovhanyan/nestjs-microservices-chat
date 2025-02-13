@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common'
 import { In, Like, Not } from 'typeorm'
 
 import { FindAndCountInput, User } from '@app/database'
-import { GetUsersDto, UpdateUserDto } from './dto/user.dto'
-import { SignupDto } from '../dto/auth.dto'
 
+import { SignupDto } from '../dto'
+import { GetUsersDto, UpdateUserDto } from './dto'
 import { UsersRepository } from './users.repository'
 
 @Injectable()

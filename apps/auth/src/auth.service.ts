@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
+
 import { HashService, VALIDATION_MESSAGES } from '@app/common'
 
 import { UsersService } from './users/users.service'

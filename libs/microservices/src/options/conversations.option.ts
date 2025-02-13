@@ -1,6 +1,7 @@
-import { ClientsProviderAsyncOptions } from '@nestjs/microservices'
 import { ConfigService } from '@nestjs/config'
+import { ClientsProviderAsyncOptions } from '@nestjs/microservices'
 import { join } from 'path'
+
 import { CONVERSATIONS_PACKAGE } from '../constants'
 import { getGrpcConnectionOptions } from './helper'
 

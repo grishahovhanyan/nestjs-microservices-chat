@@ -1,20 +1,20 @@
-import { Module } from '@nestjs/common'
-import { TypeOrmModule } from '@nestjs/typeorm'
-import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
-import { ClientsModule } from '@nestjs/microservices'
-import * as Joi from 'joi'
-
-import { AppConfigModule, JwtAuthGuard, RequestLoggerInterceptor } from '@app/common'
 import {
   getAuthServiceOptions,
   getConversationsPackageOptions,
   getParticipantsPackageOptions
 } from '@app/microservices'
-import { MysqlModule, Message } from '@app/database'
+import { Module } from '@nestjs/common'
+import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
+import { ClientsModule } from '@nestjs/microservices'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import * as Joi from 'joi'
+
+import { AppConfigModule, JwtAuthGuard, RequestLoggerInterceptor } from '@app/common'
+import { Message, MysqlModule } from '@app/database'
 
 import { MessagesController } from './messages.controller'
-import { MessagesService } from './messages.service'
 import { MessagesRepository } from './messages.repository'
+import { MessagesService } from './messages.service'
 
 @Module({
   imports: [

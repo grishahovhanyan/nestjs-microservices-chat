@@ -1,10 +1,10 @@
-import { Get, Post, Query, Body, Param, Put, Delete } from '@nestjs/common'
+import { Body, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+
 import { Swagger } from '@app/swagger'
-
 import { EnhancedController, RequestUser, TransformResponse } from '@app/common'
-
-import { CreateParticipantDto, GetParticipantsDto, UpdateParticipantDto } from './dto/participant.dto'
 import { Participant } from '@app/database'
+
+import { CreateParticipantDto, GetParticipantsDto, UpdateParticipantDto } from './dto'
 import { ParticipantsService } from './participants.service'
 
 @EnhancedController('conversations/:conversationId/participants', true, 'Participants')

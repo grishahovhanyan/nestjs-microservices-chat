@@ -1,8 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm'
 import { Exclude } from 'class-transformer'
-import { DbTables } from '../db.enum'
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
 import { PasswordTransformer, UserStatuses } from '@app/common'
+
+import { DbTables } from '../db.enum'
 
 @Entity(DbTables.users)
 export class User {

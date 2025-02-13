@@ -1,11 +1,12 @@
-import { MessagePattern, Payload } from '@nestjs/microservices'
 import { Controller, Get, Res } from '@nestjs/common'
+import { MessagePattern, Payload } from '@nestjs/microservices'
 import { Response } from 'express'
 import { join } from 'path'
 
 import { EMIT_SOCKET_EVENT_MSG_PATTERN } from '@app/common'
-import { SocketService } from './socket.service'
+
 import { EmitSocketEventPayload } from './payloads/emit-socket-event.payload'
+import { SocketService } from './socket.service'
 
 @Controller('')
 export class SocketController {

@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
-import { DbTables } from '../db.enum'
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 
+import { DbTables } from '../db.enum'
 import { Conversation } from './conversation.entity'
 import { Participant } from './participant.entity'
 

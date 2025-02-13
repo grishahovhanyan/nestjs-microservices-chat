@@ -1,8 +1,9 @@
+import { AUTH_SERVICE, USERS_PACKAGE, USERS_SERVICE_NAME, UsersGrpcServiceClient } from '@app/microservices'
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
-import { InjectRepository } from '@nestjs/typeorm'
 import { ClientGrpc, ClientProxy } from '@nestjs/microservices'
-import { Repository } from 'typeorm'
+import { InjectRepository } from '@nestjs/typeorm'
 import { firstValueFrom } from 'rxjs'
+import { Repository } from 'typeorm'
 
 import {
   BadRequestException,
@@ -13,9 +14,9 @@ import {
   paginatedResponse,
   SUCCESS_RESPONSE
 } from '@app/common'
-import { Participant } from '@app/database'
-import { AUTH_SERVICE, UsersGrpcServiceClient, USERS_PACKAGE, USERS_SERVICE_NAME } from '@app/microservices'
-import { GetParticipantsDto, CreateParticipantDto, UpdateParticipantDto } from './dto/participant.dto'
+import { DbRelations, Participant } from '@app/database'
+
+import { CreateParticipantDto, GetParticipantsDto, UpdateParticipantDto } from './dto'
 import { ParticipantsRepository } from './participants.repository'
 
 @Injectable()
@@ -235,7 +236,7 @@ export class ParticipantsService implements OnModuleInit {
   async getByConvIdAndPartId(conversationId: number, participantId: number): Promise<Participant | null> {
     return await this.participantsRepository.findOne(
       { conversationId, id: participantId },
-      { relations: ['user', 'conversation'] }
+      { relations: [DbRelations.user, DbRelations.conversation] }
     )
   }
 

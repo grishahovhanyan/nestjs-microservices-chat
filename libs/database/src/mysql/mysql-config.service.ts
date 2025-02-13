@@ -1,6 +1,6 @@
-import { ConfigService } from '@nestjs/config'
 import { Injectable } from '@nestjs/common'
-import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm'
+import { ConfigService } from '@nestjs/config'
+import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm'
 
 import { MYSQL_ENTITIES } from './entities'
 

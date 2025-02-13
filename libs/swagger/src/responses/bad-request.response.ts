@@ -1,6 +1,7 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiBadRequestResponse } from '@nestjs/swagger'
-import { VALIDATION_MESSAGES, ERROR_MESSAGES } from '@app/common'
+
+import { ERROR_MESSAGES, VALIDATION_MESSAGES } from '@app/common'
 
 export function SwaggerBadRequest400() {
   return applyDecorators(

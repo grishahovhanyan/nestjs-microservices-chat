@@ -1,7 +1,16 @@
+import {
+  AUTH_SERVICE,
+  CONVERSATIONS_PACKAGE,
+  CONVERSATIONS_SERVICE_NAME,
+  ConversationsGrpcServiceClient,
+  PARTICIPANTS_PACKAGE,
+  PARTICIPANTS_SERVICE_NAME,
+  ParticipantsGrpcServiceClient
+} from '@app/microservices'
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
 import { ClientGrpc, ClientProxy } from '@nestjs/microservices'
-import { FindOptionsWhere, Like } from 'typeorm'
 import { firstValueFrom } from 'rxjs'
+import { FindOptionsWhere, Like } from 'typeorm'
 
 import {
   ChatSocketEvents,
@@ -12,16 +21,8 @@ import {
   SUCCESS_RESPONSE
 } from '@app/common'
 import { FindAndCountInput, Message, Participant } from '@app/database'
-import {
-  AUTH_SERVICE,
-  ConversationsGrpcServiceClient,
-  CONVERSATIONS_PACKAGE,
-  CONVERSATIONS_SERVICE_NAME,
-  ParticipantsGrpcServiceClient,
-  PARTICIPANTS_PACKAGE,
-  PARTICIPANTS_SERVICE_NAME
-} from '@app/microservices'
-import { GetMessagesDto, CreateMessageDto, UpdateMessageDto } from './dto/message.dto'
+
+import { CreateMessageDto, GetMessagesDto, UpdateMessageDto } from './dto'
 import { MessagesRepository } from './messages.repository'
 
 @Injectable()

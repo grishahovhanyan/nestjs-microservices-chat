@@ -1,5 +1,6 @@
-import { ClientsProviderAsyncOptions } from '@nestjs/microservices'
 import { ConfigService } from '@nestjs/config'
+import { ClientsProviderAsyncOptions } from '@nestjs/microservices'
+
 import { AUTH_SERVICE } from '../constants'
 import { getTcpConnectionOptions } from './helper'
 
