@@ -108,7 +108,7 @@ export default [
         {
           "groups": [
             ["^@?\\w", "^@", "^[^.]"],
-            ["^@app/swagger", "^@app/common", "^@app/database", "^@app/microservices/"],
+            ["^@app/swagger", "^@app/common", "^@app/database", "^@app/microservices"],
             ["^\\."],
           ]
         }
