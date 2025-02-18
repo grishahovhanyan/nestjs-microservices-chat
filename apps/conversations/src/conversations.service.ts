@@ -1,3 +1,11 @@
+import { ForbiddenException, Inject, Injectable, NotFoundException, OnModuleInit } from '@nestjs/common'
+import { ClientGrpc, ClientProxy } from '@nestjs/microservices'
+import { InjectRepository } from '@nestjs/typeorm'
+import { firstValueFrom } from 'rxjs'
+import { Repository } from 'typeorm'
+
+import { ChatSocketEvents, EMIT_SOCKET_EVENT_MSG_PATTERN, paginatedResponse, SUCCESS_RESPONSE } from '@app/common'
+import { Conversation } from '@app/database'
 import {
   AUTH_SERVICE,
   PARTICIPANTS_PACKAGE,
@@ -7,14 +15,6 @@ import {
   USERS_SERVICE_NAME,
   UsersGrpcServiceClient
 } from '@app/microservices'
-import { ForbiddenException, Inject, Injectable, NotFoundException, OnModuleInit } from '@nestjs/common'
-import { ClientGrpc, ClientProxy } from '@nestjs/microservices'
-import { InjectRepository } from '@nestjs/typeorm'
-import { firstValueFrom } from 'rxjs'
-import { Repository } from 'typeorm'
-
-import { ChatSocketEvents, EMIT_SOCKET_EVENT_MSG_PATTERN, paginatedResponse, SUCCESS_RESPONSE } from '@app/common'
-import { Conversation } from '@app/database'
 
 import { ConversationsRepository } from './conversations.repository'
 import { CreateConversationDto, GetConversationsDto, UpdateConversationDto } from './dto'

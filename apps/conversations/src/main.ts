@@ -1,4 +1,3 @@
-import { CONVERSATIONS_PACKAGE, getGrpcConnectionOptions } from '@app/microservices'
 import { Logger } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
@@ -7,6 +6,7 @@ import { join } from 'path'
 import { initializeTransactionalContext } from 'typeorm-transactional'
 
 import { AppUtilsService, envService } from '@app/common'
+import { CONVERSATIONS_PACKAGE, getGrpcConnectionOptions } from '@app/microservices'
 
 import { ConversationsModule } from './conversations.module'
 

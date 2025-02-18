@@ -1,8 +1,3 @@
-import {
-  getAuthServiceOptions,
-  getConversationsPackageOptions,
-  getParticipantsPackageOptions
-} from '@app/microservices'
 import { Module } from '@nestjs/common'
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { ClientsModule } from '@nestjs/microservices'
@@ -11,6 +6,11 @@ import * as Joi from 'joi'
 
 import { AppConfigModule, JwtAuthGuard, RequestLoggerInterceptor } from '@app/common'
 import { Message, MysqlModule } from '@app/database'
+import {
+  getAuthServiceOptions,
+  getConversationsPackageOptions,
+  getParticipantsPackageOptions
+} from '@app/microservices'
 
 import { MessagesController } from './messages.controller'
 import { MessagesRepository } from './messages.repository'

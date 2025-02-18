@@ -1,4 +1,3 @@
-import { getAuthServiceOptions, getUsersPackageOptions } from '@app/microservices'
 import { Module } from '@nestjs/common'
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { ClientsModule } from '@nestjs/microservices'
@@ -7,6 +6,7 @@ import * as Joi from 'joi'
 
 import { AppConfigModule, JwtAuthGuard, RequestLoggerInterceptor } from '@app/common'
 import { MysqlModule, Participant } from '@app/database'
+import { getAuthServiceOptions, getUsersPackageOptions } from '@app/microservices'
 
 import { ParticipantsController } from './participants.controller'
 import { ParticipantsGrpcController } from './participants.grpc.controller'

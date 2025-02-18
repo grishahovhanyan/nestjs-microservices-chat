@@ -1,4 +1,3 @@
-import { AUTH_SERVICE, USERS_PACKAGE, USERS_SERVICE_NAME, UsersGrpcServiceClient } from '@app/microservices'
 import {
   BadRequestException,
   ForbiddenException,
@@ -14,6 +13,7 @@ import { Repository } from 'typeorm'
 
 import { ChatSocketEvents, EMIT_SOCKET_EVENT_MSG_PATTERN, paginatedResponse, SUCCESS_RESPONSE } from '@app/common'
 import { DbRelations, Participant } from '@app/database'
+import { AUTH_SERVICE, USERS_PACKAGE, USERS_SERVICE_NAME, UsersGrpcServiceClient } from '@app/microservices'
 
 import { CreateParticipantDto, GetParticipantsDto, UpdateParticipantDto } from './dto'
 import { ParticipantsRepository } from './participants.repository'
