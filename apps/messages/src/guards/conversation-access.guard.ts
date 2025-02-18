@@ -1,6 +1,4 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
-
-import { NotFoundException } from '@app/common'
+import { CanActivate, ExecutionContext, Injectable, NotFoundException } from '@nestjs/common'
 
 import { MessagesService } from '../messages.service'
 

@@ -4,7 +4,7 @@ import compression from 'compression'
 import helmet from 'helmet'
 
 import { registerSwaggerModule } from '@app/swagger'
-import { ValidationPipe } from '@app/common'
+import { HttpExceptionFilter, ValidationPipe } from '@app/common'
 
 import { envService } from './get-env'
 
@@ -20,6 +20,9 @@ export class AppUtilsService {
 
     // Register a global validation pipe to validate incoming requests
     app.useGlobalPipes(new ValidationPipe())
+
+    // Register a global exception filter
+    app.useGlobalFilters(new HttpExceptionFilter({ logging: !envService.isProductionEnv() }))
 
     // Set a global prefix for all routes in the API
     app.setGlobalPrefix(`api/${apiVersion}`)

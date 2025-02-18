@@ -1,9 +1,9 @@
-import { Body, HttpCode, Post, UseGuards } from '@nestjs/common'
+import { BadRequestException, Body, HttpCode, Post, UseGuards } from '@nestjs/common'
 import { MessagePattern, Payload } from '@nestjs/microservices'
 import { Transactional } from 'typeorm-transactional'
 
 import { Swagger } from '@app/swagger'
-import { BadRequestException, EnhancedController, ERROR_MESSAGES, TransformResponse } from '@app/common'
+import { EnhancedController, ERROR_MESSAGES, TransformResponse } from '@app/common'
 import { User } from '@app/database'
 
 import { AuthService } from './auth.service'

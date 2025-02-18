@@ -7,20 +7,13 @@ import {
   USERS_SERVICE_NAME,
   UsersGrpcServiceClient
 } from '@app/microservices'
-import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
+import { ForbiddenException, Inject, Injectable, NotFoundException, OnModuleInit } from '@nestjs/common'
 import { ClientGrpc, ClientProxy } from '@nestjs/microservices'
 import { InjectRepository } from '@nestjs/typeorm'
 import { firstValueFrom } from 'rxjs'
 import { Repository } from 'typeorm'
 
-import {
-  ChatSocketEvents,
-  EMIT_SOCKET_EVENT_MSG_PATTERN,
-  ForbiddenException,
-  NotFoundException,
-  paginatedResponse,
-  SUCCESS_RESPONSE
-} from '@app/common'
+import { ChatSocketEvents, EMIT_SOCKET_EVENT_MSG_PATTERN, paginatedResponse, SUCCESS_RESPONSE } from '@app/common'
 import { Conversation } from '@app/database'
 
 import { ConversationsRepository } from './conversations.repository'
@@ -93,6 +86,12 @@ export class ConversationsService implements OnModuleInit {
 
     if (!conversation) {
       throw new NotFoundException()
+    }
+
+    console.log(updateConversationDto, '<updateConversationDto')
+
+    if (!Object.keys(updateConversationDto).length) {
+      return conversation
     }
 
     const updatedConversation = await this.updateById(conversationId, updateConversationDto)
